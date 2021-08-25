@@ -1,0 +1,43 @@
+<?php
+/*
+ * Copyright © Ghost Unicorns snc. All rights reserved.
+ * See LICENSE for license details.
+ */
+
+/** @var  DocsOrder $viewModel */
+
+use GhostUnicorns\DocsOrder\ViewModel\DocsOrder;
+
+$viewModel = $block->getViewModel();
+$orderId = $viewModel->getOrderId();
+?>
+<?php if ($viewModel->showFrontendSection() && $viewModel->showUploadButton()): ?>
+<div class="block block-order-details-view">
+    <div class="block-title">
+        <strong><?= $block->escapeHtml(__('Upload documents')) ?></strong>
+    </div>
+    <form class="upload-form"
+          name="UploadFrom"
+          action="<?= $this->getUrl('docsorder/documents/add', ['entity_id' => $orderId]) ?>"
+          method="post"
+          enctype='multipart/form-data'
+          autocomplete="off">
+        <input type="file"
+               name="upload_file"/>
+        <button type="submit"
+                class="action submit primary "
+                title="<?= $block->escapeHtml(__('Upload')) ?>">
+              <span>
+                <?= $block->escapeHtml(__('Upload')) ?>
+              </span>
+        </button>
+    </form>
+</div>
+<?php endif; ?>
+<?php if ($viewModel->showFrontendSection()): ?>
+    <div class="block block-order-details-view">
+        <div class="block-title">
+            <strong><?= $block->escapeHtml(__('Order documents list')) ?></strong>
+        </div>
+    </div>
+<?php endif; ?>

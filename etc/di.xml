@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright © Ghost Unicorns snc. All rights reserved.
+  ~ See LICENSE for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--COMMAND-->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="order_assign_doc" xsi:type="object">
+                    GhostUnicorns\DocsOrder\Console\Command\AssignNewDocToOrder
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="GhostUnicorns\DocsOrder\Console\Command\AssignNewDocToOrder">
+        <arguments>
+            <argument name="order" xsi:type="object">Magento\Sales\Model\Order\Proxy</argument>
+            <argument name="docsManager" xsi:type="object">GhostUnicorns\Docs\Model\DocsManager\Proxy</argument>
+            <argument name="areaCode" xsi:type="object">GhostUnicorns\Docs\Model\SetAreaCode\Proxy</argument>
+        </arguments>
+    </type>
+    <!--COMMAND-->
+
+    <!--UI COMPONENT-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="gu_docs_order_data_source" xsi:type="string">
+                    GhostUnicorns\DocsOrder\Model\ResourceModel\Entity\Grid\Collection\Virtual
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="GhostUnicorns\DocsOrder\Model\ResourceModel\Entity\Grid\Collection\Virtual"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">gu_docs</argument>
+            <argument name="resourceModel" xsi:type="string">
+                GhostUnicorns\Docs\Model\ResourceModel\EntityResourceModel
+            </argument>
+        </arguments>
+    </virtualType>
+    <!--UI COMPONENT-->
+</config>

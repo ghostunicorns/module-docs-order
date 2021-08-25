@@ -1,0 +1,31 @@
+{
+    "name": "ghostunicorns/module-docs-order",
+    "description": "Module that associate documents to order and crypt it on filesystem",
+    "require": {
+        "magento/framework": "*",
+        "ghostunicorns/module-docs": "*"
+    },
+    "authors": [
+        {
+            "name": "Danilo Argentiero",
+            "email": "argentiero.danilo@gmail.com",
+            "homepage": "https://www.linkedin.com/in/daniloargentiero/",
+            "role": "Software Architect"
+        },
+        {
+            "name": "Riccardo Ugolini",
+            "email": "riccardo.ugolini@gmail.com",
+            "homepage": "https://www.linkedin.com/in/riccardougolini/",
+            "role": "Software Architect"
+        }
+    ],
+    "license": "OSL-3.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "GhostUnicorns\\DocsOrder\\": ""
+        }
+    }
+}

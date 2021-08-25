@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © Ghost Unicorns snc. All rights reserved.
+  ~ See LICENSE for license details.
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <referenceBlock name="sales_order_tabs">
+                <block class="GhostUnicorns\DocsOrder\Block\Adminhtml\Edit\Tab\OrderDocs"
+                       name="sales_order_documents.grid.container"
+                        ifconfig="docs/order_docs/enabled"/>
+                <action method="addTabAfter" ifconfig="docs/order_docs/enabled">
+                    <argument name="name" xsi:type="string">order_docs</argument>
+                    <argument name="block" xsi:type="string">sales_order_documents.grid.container</argument>
+                    <argument name="after" xsi:type="string">order_invoices</argument>
+                </action>
+            </referenceBlock>
+        </referenceContainer>
+        <referenceBlock name="sales_order_documents.grid.container">
+            <uiComponent name="docsorder_documents_grid_listing" ifconfig="docs/order_docs/enabled"/>
+        </referenceBlock>
+    </body>
+</page>

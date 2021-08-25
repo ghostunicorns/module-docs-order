@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © Ghost Unicorns snc. All rights reserved.
+  ~ See LICENSE for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="docs">
+            <group id="order_docs" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Order Documents</label>
+                <depends>
+                    <field id="docs/general/enabled">1</field>
+                </depends>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Enable Order Document</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enabled_order_fe_section" translate="label" type="select" sortOrder="15" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Enable Order View Document Frontend Section</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="docs/order_docs/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="enabled_upload_file_fe_section_order" translate="label" type="select" sortOrder="15" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Enable Upload File on Order View Document Frontend Section</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="docs/order_docs/enabled">1</field>
+                        <field id="docs/order_docs/enabled_order_fe_section">1</field>
+                    </depends>
+                </field>
+                <field id="upload_extension" translate="label" type="text" sortOrder="65" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>File Extensions Allowed</label>
+                    <depends>
+                        <field id="docs/order_docs/enabled">1</field>
+                        <field id="docs/order_docs/enabled_upload_file_fe_section_order">1</field>
+                    </depends>
+                    <comment>example: pdf,xml,png</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

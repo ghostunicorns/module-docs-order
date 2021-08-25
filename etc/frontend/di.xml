@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © Ghost Unicorns snc. All rights reserved.
+  ~ See LICENSE for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="gu_docs_order_order_data_source" xsi:type="string">
+                    GhostUnicorns\DocsOrder\Model\ResourceModel\Entity\Grid\Collection\Virtual
+                </item>
+                <item name="gu_docs_order_add_data_source" xsi:type="string">
+                    GhostUnicorns\DocsOrder\Model\ResourceModel\Entity\Grid\Collection\Virtual
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
