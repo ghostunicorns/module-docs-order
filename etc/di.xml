@@ -25,7 +25,7 @@
     </type>
     <!--COMMAND-->
 
-    <!--UI COMPONENT-->
+    <!-- START UI COMPONENT-->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
@@ -44,5 +44,5 @@
             </argument>
         </arguments>
     </virtualType>
-    <!--UI COMPONENT-->
+    <!--END UI COMPONENT-->
 </config>

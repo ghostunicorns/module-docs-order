@@ -4,6 +4,8 @@
  * See LICENSE for license details.
  */
 
+declare(strict_types=1);
+
 namespace GhostUnicorns\DocsOrder\Ui\DataProvider;
 
 use Magento\Framework\Api\Filter;

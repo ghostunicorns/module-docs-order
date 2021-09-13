@@ -1,0 +1,46 @@
+<?php
+/*
+ * Copyright © Ghost Unicorns snc. All rights reserved.
+ * See LICENSE for license details.
+ */
+
+/** @var  DocsOrder $viewModel */
+/** @var Escaper $block */
+
+use GhostUnicorns\DocsOrder\ViewModel\DocsOrder;
+use Magento\Framework\Escaper;
+
+$viewModel = $block->getViewModel();
+$orderId = $viewModel->getOrderId();
+?>
+<?php if ($viewModel->showFrontendSection() && $viewModel->showUploadButton()) : ?>
+    <section class="admin__page-section order-view-account-information">
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('Upload a document')) ?></span>
+        </div>
+        <form class="upload-form"
+              name="UploadFrom"
+              action="<?= $viewModel->getSaveUrl($orderId) ?>"
+              method="post"
+              enctype='multipart/form-data'
+              autocomplete="off">
+            <input type="file"
+                   name="upload_file"/>
+            <input name="form_key"
+                type="hidden"
+                value="<?= $block->escapeHtmlAttr($block->getFormKey()) ?>"/>
+            <button type="submit"
+                    class="action submit primary "
+                    title="<?= $block->escapeHtml(__('Upload')) ?>">
+              <span>
+                <?= $block->escapeHtml(__('Upload')) ?>
+              </span>
+            </button>
+        </form>
+    </section>
+    <section class="block block-order-details-view">
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('Document list')) ?></span>
+        </div>
+    </section>
+<?php endif; ?>

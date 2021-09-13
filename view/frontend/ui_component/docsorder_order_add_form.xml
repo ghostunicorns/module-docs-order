@@ -16,9 +16,6 @@
             <item name="namespace" xsi:type="string">docsorder_order_add_form</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
-        <item name="buttons" xsi:type="array">
-            <item name="save" xsi:type="string">GhostUnicorns\DocsOrder\Block\Frontend\Edit\Button\Save</item>
-        </item>
     </argument>
     <dataSource name="gu_docs_order_add_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
@@ -38,7 +35,6 @@
             </item>
         </argument>
     </dataSource>
-
     <fieldset name="general">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
@@ -53,7 +49,7 @@
                     <item name="visible" xsi:type="boolean">false</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">qid</item>
+                    <item name="source" xsi:type="string">entity_id</item>
                     <item name="dataScope" xsi:type="string">entity_id</item>
                 </item>
             </argument>
@@ -64,7 +60,7 @@
                     <item name="visible" xsi:type="boolean">false</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">qid</item>
+                    <item name="source" xsi:type="string">entity_type</item>
                     <item name="dataScope" xsi:type="string">entity_type</item>
                 </item>
             </argument>

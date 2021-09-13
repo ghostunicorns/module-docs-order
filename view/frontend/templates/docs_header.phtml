@@ -11,7 +11,7 @@ use GhostUnicorns\DocsOrder\ViewModel\DocsOrder;
 $viewModel = $block->getViewModel();
 $orderId = $viewModel->getOrderId();
 ?>
-<?php if ($viewModel->showFrontendSection() && $viewModel->showUploadButton()): ?>
+<?php if ($viewModel->showFrontendSection() && $viewModel->showUploadButton()) : ?>
 <div class="block block-order-details-view">
     <div class="block-title">
         <strong><?= $block->escapeHtml(__('Upload documents')) ?></strong>
@@ -34,7 +34,7 @@ $orderId = $viewModel->getOrderId();
     </form>
 </div>
 <?php endif; ?>
-<?php if ($viewModel->showFrontendSection()): ?>
+<?php if ($viewModel->showFrontendSection()) : ?>
     <div class="block block-order-details-view">
         <div class="block-title">
             <strong><?= $block->escapeHtml(__('Order documents list')) ?></strong>

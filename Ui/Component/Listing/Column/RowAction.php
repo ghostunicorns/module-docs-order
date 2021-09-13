@@ -49,11 +49,12 @@ class RowAction extends Column
                 $item[$this->getData('name')]['download'] = [
                     'href' =>
                         $this->urlBuilder->getUrl(
-                            'docsorder/documents/download',
+                            'docsorderadmin/documents/download',
                             [
                                 'doc_id' => $item['id'],
                                 'entity_id' => $item['entity_id'],
-                                'entity_type' => $item['entity_type']
+                                'entity_type' => $item['entity_type'],
+                                'active_tab' => 'order_docs'
                             ]
                         ),
                     'label' => __('Download'),
@@ -62,11 +63,12 @@ class RowAction extends Column
                 $item[$this->getData('name')]['remove'] = [
                     'href' =>
                         $this->urlBuilder->getUrl(
-                            'docsorder/documents/remove',
+                            'docsorderadmin/documents/remove',
                             [
                                 'doc_id' => $item['id'],
                                 'entity_id' => $item['entity_id'],
-                                'entity_type' => $item['entity_type']
+                                'entity_type' => $item['entity_type'],
+                                'active_tab' => 'order_docs'
                             ]
                         ),
                     'label' => __('Remove'),

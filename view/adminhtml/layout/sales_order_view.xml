@@ -20,6 +20,14 @@
             </referenceBlock>
         </referenceContainer>
         <referenceBlock name="sales_order_documents.grid.container">
+            <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
+            <block name="document.header"
+                   template="GhostUnicorns_DocsOrder::docs_header.phtml"
+                   ifconfig="docs/order_docs/enabled_order_fe_section">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">GhostUnicorns\DocsOrder\ViewModel\DocsOrder</argument>
+                </arguments>
+            </block>
             <uiComponent name="docsorder_documents_grid_listing" ifconfig="docs/order_docs/enabled"/>
         </referenceBlock>
     </body>
